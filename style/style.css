@@ -1,0 +1,132 @@
+.main {
+    background-color: lightgoldenrodyellow;
+    padding: 30px;
+    border-radius: 1rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    place-items: center;
+    margin: auto;
+    border-color: goldenrod;
+}
+
+.btn-calc {
+    display: grid;
+    grid-template-columns:1fr 1fr;
+    column-gap: 10px;
+}
+
+.btn-calc__formula {
+    border-radius: 0.25rem;
+    background: blueviolet;
+    color: #fff;
+    padding: 8px 16px;
+    font-size: 16px;
+    border-width: 0;
+}
+
+.btn-calc__urn {
+    border-radius: 0.25rem;
+    background: darkorange;
+    color: rgb(241, 241, 241);
+    padding: 8px 16px;
+    font-size: 16px;
+    border-width: 0;
+}
+
+.back-button {
+    border-radius: 0.25rem;
+    background: blueviolet;
+    color: rgb(241, 241, 241);
+    padding: 8px 16px;
+    font-size: 16px;
+    border-width: 0;
+}
+
+.result-button {
+    border-radius: 0.25rem;
+    background: darkorange;
+    color: rgb(241, 241, 241);
+    padding: 8px 16px;
+    font-size: 16px;
+    border-width: 0;
+
+}
+
+.result-button:disabled {
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.text {
+    font-family: Verdana, serif;
+    font-size: 28px;
+    text-align: center;
+}
+
+.content {
+    display: grid;
+    grid-template-columns:1fr;
+    align-items: center;
+    justify-items: center;
+    row-gap: 30px;
+}
+
+.input {
+    display: grid;
+    grid-template-columns:1fr;
+    align-items: center;
+    justify-items: center;
+    row-gap: 30px;
+    font-size: 16px;
+    font-family: Verdana, serif;
+}
+
+.input__numbers {
+    display: grid;
+    grid-template-columns:1fr;
+    align-items: center;
+    row-gap: 30px;
+}
+
+
+.input__numbers-value {
+    width: 100%;
+    height: calc(2rem + 2px);
+    padding: 0 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: black;
+    background-color: #f1f1f1;
+    border: 1px solid darkviolet;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.field {
+    height: calc(1.25rem + 2px);
+    background-color: #f1f1f1;
+    border: 1px solid darkorange;
+    border-radius: 0.25rem;
+    font-size: 16px;
+    font-family: Verdana, serif;
+}
+
+.oper-select {
+    font-size: 16px;
+    font-family: Verdana, serif;
+    appearance: none;
+    outline: 0;
+    background: #f1f1f1;
+    width: 100%;
+    height: calc(2.25rem + 2px);
+    color: black;
+    cursor: pointer;
+    border: 1px solid darkviolet;
+    border-radius: 0.25rem;
+    text-align: center;
+}
+

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>comb</title>
+    <link rel="stylesheet" href="../style/style.css">
+    <script type="module" src="../src/combFormula.js"></script>
+</head>
+<body>
+<div class="main">
+    <p class="text">Combinatorics formula</p>
+    <div class="content">
+        <div class="input">
+            <select class="oper-select" id="oper-select">
+                <option value=""> Please choose an option</option>
+                <option value="placements">placements</option>
+                <option value="permutations">permutations</option>
+                <option value="combinations">combinations</option>
+            </select>
+            <fieldset class="field">
+                <div class="input__rpt">
+                    <input type="radio" id="no" name="repetition" value="no"/>
+                    <label for="no">no repetitions</label>
+
+                    <input type="radio" id="with" name="repetition" value="with"/>
+                    <label for="with">with repetitions</label>
+                </div>
+            </fieldset>
+
+            <div class="input__numbers">
+                <label class="input__numbers-form" id="input__numbers-form-first" style="display: none">
+                    <input class="input__numbers-value" type="number" placeholder=" Enter n" id="first">
+                </label>
+                <label class="input__numbers-form" id="input__numbers-form-second" style="display: none">
+                    <input class="input__numbers-value" type="number" placeholder=" Enter k" id="second">
+                </label>
+            </div>
+        </div>
+        <div class="btn-calc">
+            <button class="result-button" id="getResult">Get result</button>
+            <button class="back-button" id="back">Go back</button>
+        </div>
+    </div>
+    <p class="text" id="result"></p>
+</div>
+</body>
+</html>
