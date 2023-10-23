@@ -1,5 +1,5 @@
 .main {
-    background-color: lightgoldenrodyellow;
+    background-color: lavenderblush;
     padding: 30px;
     border-radius: 1rem;
     position: absolute;
@@ -9,7 +9,7 @@
     display: grid;
     place-items: center;
     margin: auto;
-    border-color: goldenrod;
+    border: 1px solid darkviolet;
 }
 
 .btn-calc {
@@ -45,7 +45,7 @@
     border-width: 0;
 }
 
-.result-button {
+.result-button:enabled {
     border-radius: 0.25rem;
     background: darkorange;
     color: rgb(241, 241, 241);
@@ -54,10 +54,15 @@
     border-width: 0;
 
 }
-
 .result-button:disabled {
-    opacity: 0.1;
-    pointer-events: none;
+    opacity: 0.5;
+    border-radius: 0.25rem;
+    background: darkorange;
+    color: rgb(241, 241, 241);
+    padding: 8px 16px;
+    font-size: 16px;
+    border-width: 0;
+
 }
 
 .text {
@@ -95,7 +100,7 @@
 .input__numbers-value {
     width: 100%;
     height: calc(2rem + 2px);
-    padding: 0 0;
+    padding: 0 10px;
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
