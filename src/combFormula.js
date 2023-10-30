@@ -77,22 +77,23 @@ const getResultForComb = (num1, num2) => {
 }
 
 const getResultForPermWithRep = (num1, num2) => {
-    let result, fact1, sum = 0, fact2 = 1;
+    let result, fact1, sum = 0n, fact2 = 1n;
     let numbers = num2.split(' ');
     for (let i = 0; i < numbers.length; i++) {
-        sum += Number(numbers[i]);
+        sum += BigInt(numbers[i]);
     }
-    if (sum === Number(num1)) {
+    if (sum === BigInt(num1)) {
         fact1 = fact(num1);
         numbers.map((x) => fact(x));
         for (let i = 0; i < numbers.length; i++) {
-            fact2 *= numbers[i];
+            fact2 *= BigInt(numbers[i]);
         }
-        result = fact1 / fact2;
+        console.log(fact2);
+        result = (fact1 / fact2);
     } else {
         result = "sum of n1, n2,..., nk is not n"
     }
-    return BigInt(result);
+    return (result);
 }
 const getResultForPermWithoutRep = (num1) => {
     return fact(num1);
@@ -115,19 +116,19 @@ const getResult = () => {
     let selectedOper = select.value;
     if (getRepOrNo() === 'no' && selectedOper !== '') {
         if (selectedOper === 'permutations') {
-            res = getResultForPermWithoutRep(first.value);
+            res = getResultForPermWithoutRep(Number(first.value));
         } else if (selectedOper === 'placements') {
-            res = getResultForPlaceWithoutRep(first.value, second.value);
+            res = getResultForPlaceWithoutRep(Number(first.value), Number(second.value));
         } else if (selectedOper === 'combinations') {
-            res = getResultForComb(first.value, second.value);
+            res = getResultForComb(Number(first.value), Number(second.value));
         }
     } else if (getRepOrNo() === 'with' && selectedOper !== '') {
         if (selectedOper === 'permutations') {
-            res = getResultForPermWithRep(first.value, second.value);
+            res = getResultForPermWithRep(Number(first.value), second.value);
         } else if (selectedOper === 'combinations') {
-            res = getResultForComb((Number(first.value) + Number(second.value) - 1), second.value);
+            res = getResultForComb((BigInt(first.value) + BigInt(second.value) - 1), Number(second.value));
         } else if (selectedOper === 'placements') {
-            res = getResultForPlaceWithRep(first.value, second.value);
+            res = getResultForPlaceWithRep(Number(first.value), Number(second.value));
         }
     }
     return res;
