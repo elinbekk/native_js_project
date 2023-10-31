@@ -47,14 +47,21 @@ const fact = (num) => {
     }
     return result;
 }
+const numberIsPositive = (num1, num2) => {
+    return num1 > 0 && num2 > 0;
+}
 const getComb = (num1, num2) => {
     let result, fact1, fact2;
-    if (num1 >= num2) {
-        fact1 = fact(num1);
-        fact2 = fact(num1 - num2) * fact(num2);
-        result = fact1 / fact2;
-    } else {
-        result = num1 + " < " + num2 + " Check entered data";
+    if(numberIsPositive(num1, num2)){
+        if (num1 >= num2) {
+            fact1 = fact(num1);
+            fact2 = fact(num1 - num2) * fact(num2);
+            result = fact1 / fact2;
+        } else {
+            result = num1 + " < " + num2 + " Check entered data";
+        }
+    }else{
+        result = 'Введите положительные числа'
     }
     return result;
 }

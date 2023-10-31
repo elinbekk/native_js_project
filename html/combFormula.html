@@ -8,37 +8,45 @@
 </head>
 <body>
 <div class="main">
-    <p class="text">Combinatorics formula</p>
+    <p class="text">Формула комбинаторики</p>
     <div class="content">
+        <div class="formula">
+            <p class="formula__perm1" style="display:none">P<sub>n</sub><sup></sup> = n! </p>
+            <p class="formula__perm2" style="display:none">P<sub>n</sub><sup></sup> = n! / n<sub>1</sub>! n<sub>2</sub>! .. n<sub>k</sub>!</p>
+            <p class="formula__comb1" style="display:none">C<sub>n</sub><sup>k</sup> = n! / k!(n - k)!</p>
+            <p class="formula__comb2" style="display:none">C<sub>n</sub><sup>k</sup> = C <sub>n+k-1</sub><sup>k</sup></p>
+            <p class="formula__place1" style="display:none">A<sub>n</sub><sup>k</sup> = n! / (n - k)!</p>
+            <p class="formula__place2" style="display:none">A<sub>n</sub><sup>k</sup> =  n<sup>k</sup> </p>
+        </div>
         <div class="input">
             <select class="oper-select" id="oper-select">
-                <option value=""> Please choose an option</option>
-                <option value="placements">placements</option>
-                <option value="permutations">permutations</option>
-                <option value="combinations">combinations</option>
+                <option value="">Выберите тип</option>
+                <option value="placements">размещения</option>
+                <option value="permutations">перестановки</option>
+                <option value="combinations">сочетания</option>
             </select>
             <fieldset class="field">
                 <div class="input__rpt">
                     <input type="radio" id="no" name="repetition" value="no">
-                    <label for="no">no repetitions</label>
+                    <label for="no">без повторений</label>
 
                     <input type="radio" id="with" name="repetition" value="with">
-                    <label for="with">with repetitions</label>
+                    <label for="with">с повторениями</label>
                 </div>
             </fieldset>
 
             <div class="input__numbers">
                 <label class="input__numbers-form" id="input__numbers-form-first" style="display: none">
-                    <input class="input__numbers-value" type="number" placeholder=" Enter n" id="first">
+                    <input class="input__numbers-value" type="number" placeholder="Введите n" id="first">
                 </label>
                 <label class="input__numbers-form" id="input__numbers-form-second" style="display: none">
-                    <input class="input__numbers-value" type="text" placeholder=" Enter k" id="second">
+                    <input class="input__numbers-value" type="text" placeholder="Введите k" id="second">
                 </label>
             </div>
         </div>
         <div class="btn-calc">
-            <button class="result-button" id="getResult" disabled>Get result</button>
-            <button class="back-button" id="back">Go back</button>
+            <button class="result-button" id="getResult" disabled>Получить результат</button>
+            <button class="back-button" id="back">Назад</button>
         </div>
     </div>
     <p class="text" id="result"></p>

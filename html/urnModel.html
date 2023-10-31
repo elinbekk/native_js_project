@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="main">
-    <p class="text">Urn model task</p>
+    <p class="text">Урновая модель задачи</p>
     <div class="content">
         <div class="input">
             <p>Имеются n предметов, среди которых m меченых.</p>
@@ -23,26 +23,22 @@
             </div>
             <div class="input__numbers">
                 <label class="input__numbers-form" id="input__numbers-form-all" style="display: none">
-                    <span>Enter n</span>
-                    <input class="input__numbers-value" type="number" id="all">
+                    <input class="input__numbers-value" type="number" id="all" placeholder="Введите n (общее кол-во)">
                 </label>
                 <label class="input__numbers-form" id="input__numbers-form-labeled" style="display: none">
-                    <span>Enter m</span>
-                    <input class="input__numbers-value" type="number" id="labeled">
+                    <input class="input__numbers-value" type="number" id="labeled" placeholder="Введите m (кол-во меченых)">
                 </label>
                 <label class="input__numbers-form" id="input__numbers-form-taken" style="display: none">
-                    <span>Enter k</span>
-                    <input class="input__numbers-value" type="number" id="taken">
+                    <input class="input__numbers-value" type="number" id="taken" placeholder="Введите k (кол-во извлеченных)">
                 </label>
                 <label class="input__numbers-form" id="input__numbers-form-labeled2" style="display: none">
-                    <span>Enter r</span>
-                    <input class="input__numbers-value" type="number" id="labeled2">
+                    <input class="input__numbers-value" type="number" id="labeled2" placeholder="Введите r (кол-во меченых среди k)">
                 </label>
             </div>
         </div>
         <div class="btn-calc">
-            <button class="result-button" id="getResult" disabled>Get result</button>
-            <button class="back-button" id="back">Go back</button>
+            <button class="result-button" id="getResult" disabled>Получить результат</button>
+            <button class="back-button" id="back">Назад</button>
         </div>
     </div>
     <p class="text" id="result"></p>

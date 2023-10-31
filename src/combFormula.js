@@ -41,7 +41,9 @@ radioButtons.forEach(function (radioButton) {
         }
     });
 });
-
+const numberIsPositive = (num1, num2) => {
+    return num1 > 0 && num2 > 0;
+}
 const fact = (num) => {
     let result = 1;
     while (num !== 0) {
@@ -49,54 +51,83 @@ const fact = (num) => {
     }
     return BigInt(result);
 }
+
+
 const getResultForPlaceWithRep = (num1, num2) => {
-    return BigInt(Math.pow(num1, num2));
+    let result;
+    if (numberIsPositive()) {
+        result = BigInt(Math.pow(num1, num2));
+    } else {
+        result = 'Введите положительные числа';
+    }
+    return result;
 }
 const getResultForPlaceWithoutRep = (num1, num2) => {
     let result, fact1, fact2;
-    if (num1 >= num2) {
-        fact1 = fact(num1);
-        fact2 = fact(num1 - num2);
-        result = fact1 / fact2;
+    if (numberIsPositive(num1, num2)) {
+        if (num1 >= num2) {
+            fact1 = fact(num1);
+            fact2 = fact(num1 - num2);
+            result = fact1 / fact2;
+        } else {
+            result = "n < k. Проверьте введенные данные";
+        }
     } else {
-        result = "n < k. Check entered data";
+        result = 'Введите положительные числа';
     }
     return result;
 }
 
 const getResultForComb = (num1, num2) => {
     let result, fact1, fact2;
-    if (num1 >= num2) {
-        fact1 = fact(num1);
-        fact2 = fact(num1 - num2) * fact(num2);
-        result = fact1 / fact2;
+    if (numberIsPositive(num1, num2)) {
+        if (num1 >= num2) {
+            fact1 = fact(num1);
+            fact2 = fact(num1 - num2) * fact(num2);
+            result = fact1 / fact2;
+        } else {
+            result = "n < k. Проверьте введенные данные";
+        }
     } else {
-        result = "n < k. Check entered data";
+        result = 'Введите положительные числа';
     }
     return result;
 }
 
 const getResultForPermWithRep = (num1, num2) => {
     let result, fact1, sum = 0n, fact2 = 1n;
-    let numbers = num2.split(' ');
-    for (let i = 0; i < numbers.length; i++) {
-        sum += BigInt(numbers[i]);
-    }
-    if (sum === BigInt(num1)) {
-        fact1 = fact(num1);
-        numbers.map((x) => fact(x));
+    if(num1 > 0){
+        let numbers = num2.split(' ');
         for (let i = 0; i < numbers.length; i++) {
-            fact2 *= BigInt(numbers[i]);
+            if(numbers[i] < 0){
+                result = 'Введите положитлеьное число';
+                break;
+            }
+            sum += BigInt(numbers[i]);
         }
-        console.log(fact2);
-        result = (fact1 / fact2);
-    } else {
-        result = "sum of n1, n2,..., nk is not n"
+        if (sum === BigInt(num1)) {
+            fact1 = fact(num1);
+            numbers.map((x) => fact(x));
+            for (let i = 0; i < numbers.length; i++) {
+                fact2 *= BigInt(numbers[i]);
+            }
+            result = (fact1 / fact2);
+        } else {
+            result = "n1 + n2 +...+ nk != n"
+        }
+    }else{
+        result = 'Введите положитлеьное число'
     }
+
     return (result);
 }
 const getResultForPermWithoutRep = (num1) => {
-    return fact(num1);
+    if(num1 > 0){
+        return fact(num1);
+    }else{
+        return 'Введите положительное число';
+    }
+
 }
 
 
@@ -110,6 +141,63 @@ const getRepOrNo = () => {
 const dataIsCorrect = () => {
     let selectedOper = select.value;
     return selectedOper !== '' && getRepOrNo() !== undefined && (first.value !== '' || second.value !== '');
+}
+const showFormula = () => {
+    let selectedOper = select.value;
+
+    let formulaP1 = document.querySelector('.formula__perm1');
+    let formulaP2 = document.querySelector('.formula__perm2');
+    let formulaC1 = document.querySelector('.formula__comb1');
+    let formulaC2 = document.querySelector('.formula__comb2');
+    let formulaA1 = document.querySelector('.formula__place1');
+    let formulaA2 = document.querySelector('.formula__place2');
+    if (getRepOrNo() === 'no' && selectedOper !== '') {
+        if (selectedOper === 'permutations') {
+            formulaP1.style.display = 'block';
+            formulaA1.style.display = 'none';
+            formulaA2.style.display = 'none';
+            formulaP2.style.display = 'none';
+            formulaC1.style.display = 'none';
+            formulaC2.style.display = 'none';
+        } else if (selectedOper === 'placements') {
+            formulaA1.style.display = 'block';
+            formulaP1.style.display = 'none';
+            formulaA2.style.display = 'none';
+            formulaP2.style.display = 'none';
+            formulaC1.style.display = 'none';
+            formulaC2.style.display = 'none';
+        } else if (selectedOper === 'combinations') {
+            formulaC1.style.display = 'block';
+            formulaA1.style.display = 'none';
+            formulaA2.style.display = 'none';
+            formulaP2.style.display = 'none';
+            formulaP1.style.display = 'none';
+            formulaC2.style.display = 'none';
+        }
+    } else if (getRepOrNo() === 'with' && selectedOper !== '') {
+        if (selectedOper === 'permutations') {
+            formulaP2.style.display = 'block';
+            formulaA1.style.display = 'none';
+            formulaA2.style.display = 'none';
+            formulaP1.style.display = 'none';
+            formulaC1.style.display = 'none';
+            formulaC2.style.display = 'none';
+        } else if (selectedOper === 'combinations') {
+            formulaC2.style.display = 'block';
+            formulaA1.style.display = 'none';
+            formulaA2.style.display = 'none';
+            formulaP2.style.display = 'none';
+            formulaC1.style.display = 'none';
+            formulaP1.style.display = 'none';
+        } else if (selectedOper === 'placements') {
+            formulaA2.style.display = 'block';
+            formulaA1.style.display = 'none';
+            formulaP1.style.display = 'none';
+            formulaP2.style.display = 'none';
+            formulaC1.style.display = 'none';
+            formulaC2.style.display = 'none';
+        }
+    }
 }
 const getResult = () => {
     let res;
@@ -142,10 +230,11 @@ function activateResultButton() {
     }
 }
 
-select.addEventListener('change', activateResultButton);
+select.addEventListener('change', activateResultButton,showFormula);
 radioButtons.forEach(function (radioButton) {
-    radioButton.addEventListener('change', () => {
-        activateResultButton()
+    radioButton.addEventListener('click', () => {
+        activateResultButton();
+        showFormula();
     })
 });
 first.addEventListener('input', activateResultButton);
